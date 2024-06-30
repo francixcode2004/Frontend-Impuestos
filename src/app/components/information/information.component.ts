@@ -60,6 +60,7 @@ export class InformationComponent {
       imagen: '../../../assets/alimentacion.png',
     },
   ];
+  
   selectedInfo: string | null = null;
 
   public informacion(info: string) {

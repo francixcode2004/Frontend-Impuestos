@@ -1,55 +1,81 @@
 <main class="flex-1">
-    <section class="py-12 md:py-16">
-      <div class="container">
-          <h2 class="text-2xl fw-bold">Servicios</h2>
-          <div class="row mt-6">
-              <div class="col-sm-6 col-lg-4 mb-4" *ngFor="let item of deducibles1; let i = index">
-                  <div class="card h-100 shadow-sm">
-                      <img [src]="item.imagen" class="card-img-top" [alt]="item.informacion_adicional" />
-                      <div class="card-body">
-                          <h3 class="card-title text-xl fw-bold">{{ item.gastos }}</h3>
-                          <p class="card-text mt-2">{{ item.descripcion }}</p>
-                          <button (click)="informacion(item.informacion_adicional)" class="btn btn-primary mt-4">Ver información detallada</button>
-                          <button (click)="borrar(i)" class="btn btn-danger mt-4">Eliminar</button>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </section>
-    <section class="bg-light py-12 md:py-16">
-        <div class="container">
-            <h2 class="text-2xl fw-bold">Información</h2>
-            <div class="row mt-6">
-                <div class="col-sm-6 col-lg-4 mb-4">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <h3 class="card-title text-xl fw-bold">Guía de Pago</h3>
-                            <p class="card-text mt-2">Aprende cómo realizar el pago de tus impuestos de manera segura y eficiente.</p>
-                            <a href="#" class="btn btn-outline-primary mt-4">Ver Guía</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4 mb-4">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <h3 class="card-title text-xl fw-bold">Preguntas Frecuentes</h3>
-                            <p class="card-text mt-2">Encuentra respuestas a las preguntas más comunes sobre el pago de impuestos.</p>
-                            <a href="#" class="btn btn-outline-primary mt-4">Ver Preguntas Frecuentes</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4 mb-4">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <h3 class="card-title text-xl fw-bold">Recursos</h3>
-                            <p class="card-text mt-2">Encuentra información y recursos adicionales sobre el pago de impuestos.</p>
-                            <a href="#" class="btn btn-outline-primary mt-4">Ver Recursos</a>
-                        </div>
-                    </div>
-                </div>
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <h2 class="text-2xl fw-bold">Servicios</h2>
+      <div class="row mt-6">
+        <div
+          class="col-sm-6 col-lg-4 mb-4"
+          *ngFor="let item of deducibles1; let i = index"
+        >
+          <div class="card h-100 shadow-sm">
+            <img
+              [src]="item.imagen"
+              class="card-img-top"
+              [alt]="item.informacion_adicional"
+            />
+            <div class="card-body">
+              <h3 class="card-title text-xl fw-bold">{{ item.gastos }}</h3>
+              <p class="card-text mt-2">{{ item.descripcion }}</p>
+              <button
+                (click)="informacion(item.informacion_adicional)"
+                class="btn btn-primary mt-4"
+              >
+                Ver información detallada
+              </button>
+              <button (click)="borrar(i)" class="btn btn-danger mt-4">
+                Eliminar
+              </button>
             </div>
+          </div>
         </div>
-    </section>
-  </main>
-  <app-footer></app-footer>
+      </div>
+    </div>
+  </section>
+  <section class="bg-light py-12 md:py-16">
+    <div class="container">
+      <h2 class="text-2xl fw-bold">Información</h2>
+      <div class="row mt-6">
+        <div class="col-sm-6 col-lg-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title text-xl fw-bold">Guía de Pago</h3>
+              <p class="card-text mt-2">
+                Aprende cómo realizar el pago de tus impuestos de manera segura
+                y eficiente.
+              </p>
+              <a href="#" class="btn btn-outline-primary mt-4">Ver Guía</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title text-xl fw-bold">Preguntas Frecuentes</h3>
+              <p class="card-text mt-2">
+                Encuentra respuestas a las preguntas más comunes sobre el pago
+                de impuestos.
+              </p>
+              <a href="#" class="btn btn-outline-primary mt-4"
+                >Ver Preguntas Frecuentes</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title text-xl fw-bold">Recursos</h3>
+              <p class="card-text mt-2">
+                Encuentra información y recursos adicionales sobre el pago de
+                impuestos.
+              </p>
+              <a href="#" class="btn btn-outline-primary mt-4">Ver Recursos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

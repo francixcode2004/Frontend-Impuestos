@@ -4,6 +4,6 @@ export interface Usuario {
     correo: string;
     telefono: string;
     cedula: string;
-    password: string;
-    impuestos: any[]; 
-}
+    password: string; 
+  }
+  
