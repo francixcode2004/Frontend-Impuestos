@@ -1,0 +1,88 @@
+:host {
+  display: block;
+}
+
+/* Custom styles */
+.text-3xl {
+  font-size: 2rem;
+}
+
+.text-2xl {
+  font-size: 1.75rem;
+}
+
+.text-xl {
+  font-size: 1.5rem;
+}
+
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.md\:py-16 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.bg-primary {
+  background-color: #0d6efd;
+}
+
+.text-light {
+  color: #f8f9fa;
+}
+
+.bg-light {
+  background-color: #f8f9fa;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+.btn-outline-primary {
+  color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.btn-primary:hover {
+  background-color: #0a58ca;
+  border-color: #0a58ca;
+}
+
+.shadow-sm {
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+}

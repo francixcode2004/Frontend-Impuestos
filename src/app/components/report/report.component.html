@@ -1,0 +1,22 @@
+<!-- src/app/components/impuesto/impuesto.component.html -->
+<table class="table caption-top">
+  <caption>Lista de Impuestos</caption>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Cédula</th>
+      <th scope="col">Ingreso Anual</th>
+      <th scope="col">Total Gastos</th>
+      <th scope="col">Impuesto Calculado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let impuesto of impuestos; let i = index">
+      <th scope="row">{{ impuesto.id }}</th>
+      <td>{{ impuesto.cedula }}</td>
+      <td>{{ impuesto.ingresoAnual }}</td>
+      <td>{{ impuesto.totalGastos }}</td>
+      <td>{{ impuesto.impuestoCalculado }}</td>
+    </tr>
+  </tbody>
+</table>
