@@ -1,6 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
-import { Usuario } from "../../models/usuarios";
+import { Usuario ,UsuarioLogin} from "../../models/usuarios";
 import { LoginService } from "../../services/login.service";
 import { FormsModule } from "@angular/forms";
 
@@ -13,7 +13,7 @@ import { FormsModule } from "@angular/forms";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent implements OnInit {
-  usuarios: Usuario[] = [];
+  //usuarios: Usuario[] = [];
   email: string = "";
   password: string = "";
 
@@ -24,17 +24,18 @@ export class LoginComponent implements OnInit {
   reg_email: string = "";
   reg_password: string = "";
   constructor(private loginService: LoginService) {
-    this.verData();
+    //this.verData();
   }
   ngOnInit(): void {
-    this.verData();
+    //this.verData();
   }
+  /*
   verData() {
     this.loginService.getUsuarios().subscribe((data) => {
       this.usuarios = data;
       console.log("usuariost", this.usuarios);
     });
-  }
+  }*/
 
   register() {
     const newUser: Usuario = {
@@ -56,21 +57,20 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  /*
-  login() {
-    const loginUser = {
+  
+  login(): void {
+    const loginUser: UsuarioLogin = {
       correo: this.email,
       password: this.password
     };
-    
+    console.log(loginUser)
     this.loginService.login(loginUser).subscribe(
-      response => {
-        console.log('Login successful:', response);
-      
+      () => {
+        console.log('Login successful'); 
       },
       error => {
         console.error('Login failed:', error);
       }
     );
-  }*/
+  }
 }
