@@ -1,53 +1,102 @@
 <div class="container">
-    <form (ngSubmit)="calcularImpuestoRenta()">
-      <div class="form-group">
-        <h1 class="text-center text-primary">Calcular Impuesto a la Renta</h1>
-        
-        <div class="input-group">
-          <label for="cedula" class="form-label">Número de Cédula</label>
-          <input type="text" class="form-control" id="cedula" name="cedula" [(ngModel)]="cedula" pattern="^\d{10}$" required/>
-        </div>
+  <form (ngSubmit)="calcularImpuestoRenta()">
+    <div class="form-group">
+      <h1 class="text-center text-primary">Calcular Impuesto a la Renta</h1>
 
-        
-        <div class="input-group">
-          <label for="sueldoAnual" class="form-label">Ingreso Anual</label>
-          <input type="number" class="form-control" id="sueldoAnual" name="sueldoAnual" [(ngModel)]="sueldoAnual" min="0" required/>
-        </div>
-
-        <div class="input-group">
-          <label for="salud" class="form-label">Gastos en Salud</label>
-          <input type="number" class="form-control" id="salud" name="salud" [(ngModel)]="salud" min="0" required/>
-        </div>
-
-        <div class="input-group">
-          <label for="educacion" class="form-label">Gastos en Educación</label>
-          <input type="number" class="form-control" id="educacion" name="educacion" [(ngModel)]="educacion" min="0" required/>
-        </div>
-
-   
-        <div class="input-group">
-          <label for="vestimenta" class="form-label">Gastos en Vestimenta</label>
-          <input type="number" class="form-control" id="vestimenta" name="vestimenta" [(ngModel)]="vestimenta" min="0" required/>
-        </div>
-
-        <div class="input-group">
-          <label for="vivienda" class="form-label">Gastos en Vivienda</label>
-          <input type="number" class="form-control" id="vivienda" name="vivienda" [(ngModel)]="vivienda" min="0" required/>
-        </div>
-
-        <div class="input-group">
-          <label for="alimentacion" class="form-label">Gastos en Alimentación</label>
-          <input type="number" class="form-control" id="alimentacion" name="alimentacion" [(ngModel)]="alimentacion" min="0" required/>
-        </div>
-        
-        <button class="btn btn-primary mt-3" (click)="guardarResultadosEnJSON()">Calcular</button>
+      <div class="input-group">
+        <label for="cedula" class="form-label">Número de Cédula</label>
+        <input
+          type="text"
+          class="form-control"
+          id="cedula"
+          name="cedula"
+          [(ngModel)]="cedula"
+          pattern="^\d{10}$"
+          required
+        />
       </div>
-    </form>
-  
-  @if (
-    impuestoRenta!==null
-  ) {
-    <h2>Resultado</h2>
-    <p>El impuesto a la renta calculado es: {{ impuestoRenta }}</p>
-  }
-  
+
+      <div class="input-group">
+        <label for="sueldoAnual" class="form-label">Ingreso Anual</label>
+        <input
+          type="number"
+          class="form-control"
+          id="sueldoAnual"
+          name="sueldoAnual"
+          [(ngModel)]="sueldoAnual"
+          min="0"
+          required
+        />
+      </div>
+
+      <div class="input-group">
+        <label for="salud" class="form-label">Gastos en Salud</label>
+        <input
+          type="number"
+          class="form-control"
+          id="salud"
+          name="salud"
+          [(ngModel)]="salud"
+          min="0"
+          required
+        />
+      </div>
+
+      <div class="input-group">
+        <label for="educacion" class="form-label">Gastos en Educación</label>
+        <input
+          type="number"
+          class="form-control"
+          id="educacion"
+          name="educacion"
+          [(ngModel)]="educacion"
+          min="0"
+          required
+        />
+      </div>
+
+      <div class="input-group">
+        <label for="vestimenta" class="form-label">Gastos en Vestimenta</label>
+        <input
+          type="number"
+          class="form-control"
+          id="vestimenta"
+          name="vestimenta"
+          [(ngModel)]="vestimenta"
+          min="0"
+          required
+        />
+      </div>
+
+      <div class="input-group">
+        <label for="vivienda" class="form-label">Gastos en Vivienda</label>
+        <input
+          type="number"
+          class="form-control"
+          id="vivienda"
+          name="vivienda"
+          [(ngModel)]="vivienda"
+          min="0"
+          required
+        />
+      </div>
+
+      <div class="input-group">
+        <label for="alimentacion" class="form-label"
+          >Gastos en Alimentación</label
+        >
+        <input
+          type="number"
+          class="form-control"
+          id="alimentacion"
+          name="alimentacion"
+          [(ngModel)]="alimentacion"
+          min="0"
+          required
+        />
+      </div>
+
+      <button class="btn btn-primary mt-3">Calcular</button>
+    </div>
+  </form>
+</div>

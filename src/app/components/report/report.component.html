@@ -1,22 +1,45 @@
-<!-- src/app/components/impuesto/impuesto.component.html -->
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form (ngSubmit)="verImpuestos()">
+        <div class="form-group text-center">
+          <label for="cedula" id="cedula" class="form-label font-weight-bold">Cédula:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cedula"
+            name="cedula"
+            [(ngModel)]="cedula"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary my-3 d-block mx-auto">Ver Impuestos</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
 <table class="table caption-top">
-  <caption>Lista de Impuestos</caption>
+  <caption>
+    Lista de Impuestos
+  </caption>
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Cédula</th>
       <th scope="col">Ingreso Anual</th>
       <th scope="col">Total Gastos</th>
       <th scope="col">Impuesto Calculado</th>
+      <th scope="col">fecha</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let impuesto of impuestos; let i = index">
-      <th scope="row">{{ impuesto.id }}</th>
-      <td>{{ impuesto.cedula }}</td>
+      <th scope="row">{{ i + 1 }}</th>
       <td>{{ impuesto.ingresoAnual }}</td>
       <td>{{ impuesto.totalGastos }}</td>
       <td>{{ impuesto.impuestoCalculado }}</td>
+      <td>{{ impuesto.fecha }}</td>
     </tr>
   </tbody>
 </table>

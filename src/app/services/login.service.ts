@@ -7,7 +7,7 @@ import { Usuario, UsuarioLogin } from "../models/usuarios";
   providedIn: "root",
 })
 export class LoginService {
-  private get = "http://localhost:4321/api/v1/usuarios";
+  private getUsusariosURL = "http://localhost:4321/api/v1/usuarios";
   private regUser = "http://localhost:4321/api/v1/register";
 
   private loginUrl = "http://localhost:4321/api/v1/login";
@@ -15,7 +15,7 @@ export class LoginService {
   constructor(private http: HttpClient) {}
 
   getUsuarios(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(this.get);
+    return this.http.get<Usuario[]>(this.getUsusariosURL);
   }
 
   registerUser(usuario: Usuario): Observable<Usuario> {

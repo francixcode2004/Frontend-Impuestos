@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {agregarImpuesto} from '../../../assets/data/dataImpuestos'
 import {Impuesto} from '../../models/impuesto'
 import{ImpuestoService} from '../../services/impuesto.service'
 
@@ -121,20 +120,6 @@ export class ImpuestoComponent {
     
   }
 
-  guardarResultadosEnJSON(): void {
-    if (this.impuestoRenta !== null) {
-      const nuevoImpuesto: Impuesto = {
-        id: Date.now(),
-        cedula: this.cedula,
-        ingresoAnual: this.sueldoAnual,
-        totalGastos: this.totalDeducciones,
-        impuestoCalculado: this.impuestoRenta,
-      };
-      this.impuestoService.guardarImpuestoEnArchivo(nuevoImpuesto)
-        .subscribe(() => {
-          console.log('Datos guardados en el archivo.');
-        });
-    }
-  }
+  
 }
 
