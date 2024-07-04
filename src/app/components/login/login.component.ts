@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
 import { Usuario ,UsuarioLogin} from "../../models/usuarios";
 import { LoginService } from "../../services/login.service";
 import { FormsModule } from "@angular/forms";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-login",
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
   telefono: string = "";
   reg_email: string = "";
   reg_password: string = "";
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginService, private router:Router) {
     //this.verData();
   }
   ngOnInit(): void {
@@ -67,6 +68,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(loginUser).subscribe(
       () => {
         console.log('Login successful'); 
+        this.router.navigate(['/reporte'])
       },
       error => {
         console.error('Login failed:', error);

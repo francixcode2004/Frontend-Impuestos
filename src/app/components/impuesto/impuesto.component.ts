@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {Impuesto} from '../../models/impuesto'
-import{ImpuestoService} from '../../services/impuesto.service'
-
+import { Impuesto } from '../../models/impuesto'
+import { ImpuestoService } from '../../services/impuesto.service'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-impuesto',
   standalone: true,
@@ -19,7 +19,7 @@ import{ImpuestoService} from '../../services/impuesto.service'
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ImpuestoComponent { 
+export class ImpuestoComponent implements OnInit {
   cedula: string = '';
   sueldoAnual: number = 0;
   salud: number = 0;
@@ -32,10 +32,10 @@ export class ImpuestoComponent {
   totalDeducciones: number = 0;
   baseImponible: number = 0;
   excedente: number = 0;
-  impuestoRenta: number | null = 0;
+  impuestoRenta: number  = 0;
 
-  constructor(private impuestoService: ImpuestoService) {
-   }
+  constructor(private impuestoService: ImpuestoService,private router:Router) {
+  }
 
   ngOnInit(): void { }
 
@@ -46,32 +46,32 @@ export class ImpuestoComponent {
       return false;
     }
 
-    if (isNaN(this.sueldoAnual) || this.sueldoAnual <= 0 ) {
+    if (isNaN(this.sueldoAnual) || this.sueldoAnual <= 0) {
       alert("Error, ingrese un sueldo anual válido");
       return false;
     }
 
-    if (isNaN(this.salud) || this.salud < 0  || this.salud>this.deduccionMaxima) {
+    if (isNaN(this.salud) || this.salud < 0 || this.salud > this.deduccionMaxima) {
       alert("Error, ingrese un valor válido para gastos en salud");
       return false;
     }
 
-    if (isNaN(this.educacion) || this.educacion < 0  || this.educacion>3500) {
+    if (isNaN(this.educacion) || this.educacion < 0 || this.educacion > 3500) {
       alert("Error, ingrese un valor válido para gastos en educación");
       return false;
     }
 
-    if (isNaN(this.vestimenta) || this.vestimenta < 0  || this.vestimenta>3500) {
+    if (isNaN(this.vestimenta) || this.vestimenta < 0 || this.vestimenta > 3500) {
       alert("Error, ingrese un valor válido para gastos en vestimenta");
       return false;
     }
 
-    if (isNaN(this.vivienda) || this.vivienda < 0  || this.vivienda>3500 ) {
+    if (isNaN(this.vivienda) || this.vivienda < 0 || this.vivienda > 3500) {
       alert("Error, ingrese un valor válido para gastos en vivienda");
       return false;
     }
 
-    if (isNaN(this.alimentacion) || this.alimentacion < 0  || this.alimentacion>3500) {
+    if (isNaN(this.alimentacion) || this.alimentacion < 0 || this.alimentacion > 3500) {
       alert("Error, ingrese un valor válido para gastos en alimentación ");
       return false;
     }
@@ -83,18 +83,18 @@ export class ImpuestoComponent {
     if (this.validacion()) {
       this.totalDeducciones = this.salud + this.educacion + this.vestimenta + this.vivienda + this.alimentacion;
       if (this.totalDeducciones > this.deduccionMaxima) {
-        alert ("el valor maximo de deduciones a sido sobrepasado 15238.60")
-        return 
+        alert("el valor maximo de deduciones a sido sobrepasado 15238.60")
+        return
       }
       this.baseImponible = this.sueldoAnual - this.totalDeducciones;
-      console.log("total deduciones",this.totalDeducciones)
+      console.log("total deduciones", this.totalDeducciones)
       console.log("Base Imponible:", this.baseImponible);
     }
   }
 
   calcularImpuestoRenta(): void {
     this.calcularBaseImponible();
-    
+
     const tablaImpuesto = [
       { base: 0, exceso: 11722, impuestoBasico: 0, porcentajeExcedente: 0 },
       { base: 11722, exceso: 14930, impuestoBasico: 0, porcentajeExcedente: 0.05 },
@@ -117,9 +117,27 @@ export class ImpuestoComponent {
     }
 
     console.log("Impuesto a la renta:", this.impuestoRenta);
-    
+    this.createImpuesto();
   }
 
-  
+  createImpuesto(): void {
+    const impuesto: Impuesto = {
+      ingresoAnual: this.sueldoAnual,
+      totalGastos: this.totalDeducciones,
+      impuestoCalculado: this.impuestoRenta,
+      fecha: new Date()
+    };
+    console.log (impuesto);
+    this.impuestoService.createImpuestos(impuesto,this.cedula).subscribe(
+      ()=>{
+        console.log("Impuesto creado")
+        this.router.navigate(['/reporte'])
+      },
+      error=>{
+        console.log("Error al crear impuesto")
+      }
+    )
+  }
+
 }
 

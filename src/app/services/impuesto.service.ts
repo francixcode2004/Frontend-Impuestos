@@ -9,6 +9,7 @@ import {Impuesto} from '../../app/models/impuesto'
 })
 export class ImpuestoService {
   private impuestosURL = 'http://localhost:4321/api/v1/impuestos'; 
+
   constructor(private http: HttpClient) {}
 
   getToken(): string | null {
@@ -25,5 +26,14 @@ export class ImpuestoService {
     console.log("La url es",url)
     return this.http.get<Impuesto[]>(url,{headers});
   };
-  
+  createImpuestos(impuesto:Impuesto, cedula:string){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + this.getToken()
+    });
+    
+    const url = `${this.impuestosURL}/${cedula}`;
+    console.log("La url es",url)
+    return this.http.post<{token:string}>(url,impuesto,{headers})
+  }
 }

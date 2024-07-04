@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container mt-5">
   <form (ngSubmit)="calcularImpuestoRenta()">
-    <div class="form-group">
-      <h1 class="text-center text-primary">Calcular Impuesto a la Renta</h1>
+    <h1 class="text-center text-primary mb-4">Calcular Impuesto a la Renta</h1>
 
+    <div class="mb-3">
+      <label for="cedula" class="form-label">Número de Cédula</label>
       <div class="input-group">
-        <label for="cedula" class="form-label">Número de Cédula</label>
         <input
           type="text"
           class="form-control"
@@ -15,9 +15,11 @@
           required
         />
       </div>
+    </div>
 
+    <div class="mb-3">
+      <label for="sueldoAnual" class="form-label">Ingreso Anual</label>
       <div class="input-group">
-        <label for="sueldoAnual" class="form-label">Ingreso Anual</label>
         <input
           type="number"
           class="form-control"
@@ -28,9 +30,11 @@
           required
         />
       </div>
+    </div>
 
+    <div class="mb-3">
+      <label for="salud" class="form-label">Gastos en Salud</label>
       <div class="input-group">
-        <label for="salud" class="form-label">Gastos en Salud</label>
         <input
           type="number"
           class="form-control"
@@ -41,9 +45,11 @@
           required
         />
       </div>
+    </div>
 
+    <div class="mb-3">
+      <label for="educacion" class="form-label">Gastos en Educación</label>
       <div class="input-group">
-        <label for="educacion" class="form-label">Gastos en Educación</label>
         <input
           type="number"
           class="form-control"
@@ -54,9 +60,11 @@
           required
         />
       </div>
+    </div>
 
+    <div class="mb-3">
+      <label for="vestimenta" class="form-label">Gastos en Vestimenta</label>
       <div class="input-group">
-        <label for="vestimenta" class="form-label">Gastos en Vestimenta</label>
         <input
           type="number"
           class="form-control"
@@ -67,9 +75,11 @@
           required
         />
       </div>
+    </div>
 
+    <div class="mb-3">
+      <label for="vivienda" class="form-label">Gastos en Vivienda</label>
       <div class="input-group">
-        <label for="vivienda" class="form-label">Gastos en Vivienda</label>
         <input
           type="number"
           class="form-control"
@@ -80,11 +90,11 @@
           required
         />
       </div>
+    </div>
 
+    <div class="mb-3">
+      <label for="alimentacion" class="form-label">Gastos en Alimentación</label>
       <div class="input-group">
-        <label for="alimentacion" class="form-label"
-          >Gastos en Alimentación</label
-        >
         <input
           type="number"
           class="form-control"
@@ -95,8 +105,8 @@
           required
         />
       </div>
-
-      <button class="btn btn-primary mt-3">Calcular</button>
     </div>
+
+    <button class="btn btn-primary w-100 mt-3">Calcular</button>
   </form>
 </div>
