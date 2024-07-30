@@ -16,12 +16,10 @@ export class ImpuestoService {
     return localStorage.getItem("authToken");
   }
   getImpuestos(cedula: string): Observable<Impuesto[]> {
-    
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + this.getToken()
     });
-    
     const url = `${this.impuestosURL}/${cedula}`;
     console.log("La url es",url)
     return this.http.get<Impuesto[]>(url,{headers});

@@ -13,6 +13,7 @@ import {FooterComponent}from './components/footer/footer.component'
 import {HeaderComponent}from './components/header/header.component'
 import {LoginComponent}from './components/login/login.component'
 import { ReactiveFormsModule } from '@angular/forms';
+import { JsonapiComponent } from './components/jsonapi/jsonapi.component';
 @NgModule({
   declarations: [
     AppComponent
@@ -29,7 +30,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     LoginComponent,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    JsonapiComponent
   ],
   providers: [
     provideClientHydration(),

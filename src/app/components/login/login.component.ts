@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
   //usuarios: Usuario[] = [];
   email: string = "";
   password: string = "";
-
   nombres: string = "";
   apellidos: string = "";
   cedula: string = "";

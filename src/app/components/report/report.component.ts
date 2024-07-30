@@ -20,8 +20,7 @@ import { FormsModule } from "@angular/forms";
 export class ReportComponent implements OnInit {
   cedula: string = "";
   impuestos: Impuesto[] = [];
-  constructor(private impuestosServices: ImpuestoService) {
-  }
+  constructor(private impuestosServices: ImpuestoService) {}
   ngOnInit(): void {
     this.verImpuestos();
   }

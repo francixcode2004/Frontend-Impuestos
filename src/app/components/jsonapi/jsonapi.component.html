@@ -1,0 +1,34 @@
+<button (click)="ngOnInit()">buscar</button>
+<div>
+    <label for="apiSelect">Select API:</label>
+    <select id="apiSelect" (change)="onApiChange($event)">
+      <option value="local">Local API</option>
+      <option value="online">Online API</option>
+    </select>
+  </div>
+  
+  <table *ngIf="data.length > 0" class="table table-striped-columns">
+    <thead>
+      <tr>
+        <th *ngIf="selectedApi === 'local'">Cedula</th>
+        <th *ngIf="selectedApi === 'local'">Nombre</th>
+        <th *ngIf="selectedApi === 'local'">Apellido</th>
+        <th *ngIf="selectedApi === 'local'">Edad</th>
+        <th *ngIf="selectedApi === 'online'">Name</th>
+        <th *ngIf="selectedApi === 'online'">Username</th>
+        <th *ngIf="selectedApi === 'online'">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data">
+        <td *ngIf="selectedApi === 'local'">{{ item.cedula }}</td>
+        <td *ngIf="selectedApi === 'local'">{{ item.nombre }}</td>
+        <td *ngIf="selectedApi === 'local'">{{ item.apellido }}</td>
+        <td *ngIf="selectedApi === 'local'">{{ item.edad }}</td>
+        <td *ngIf="selectedApi === 'online'">{{ item.name }}</td>
+        <td *ngIf="selectedApi === 'online'">{{ item.username }}</td>
+        <td *ngIf="selectedApi === 'online'">{{ item.email }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
